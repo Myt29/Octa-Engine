@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include "Net_MDL.cpp"
 
 class Check_MDL {
@@ -22,12 +23,18 @@ public:
 
 class Neuron {
 private:
+	std::function<double(double)> activationFunction;
 	double weights;
 	double bias;
 	int inputsCount;
+	double output = 0;
 
 public:
 	Neuron();
-	Neuron(double weights, double bias, int inputsCount);
-
+	Neuron(std::function<double(double)> actFunction, double weights, double bias, int inputsCount);
+	double GetOutput(double input)
+	{
+		double linearOutput = weights * input + bias;
+		return activationFunction(linearOutput);
+	}
 };

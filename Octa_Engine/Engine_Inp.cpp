@@ -21,8 +21,7 @@ public:
 
 int main() {
 	Engine engine;
-	std::cout << "Sigmoid with inp 1:\t\t" << Activation_Functions::Sigmoid(1) << std::endl;
-
+	
 	return 0;
 }
 
@@ -41,6 +40,8 @@ Engine::Engine() {
 	for (int i = 0; i < memorySize; i++) {
 		ArrSum += sizeof(pNeuronMemory[i]);
 	}
+	Neuron A(Activation_Functions::Tanh, 0.5, 0.1, 2);
+	std::cout << "Neuron Output:\t\t" << A.GetOutput(0.7) << std::endl;
 #ifdef DEBUG
 	std::cout << "RAM is allocated:\t" << ArrSum/1000.0 << " kB\n\n";
 #endif		//DEBUG

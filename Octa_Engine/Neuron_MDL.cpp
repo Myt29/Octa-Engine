@@ -32,9 +32,11 @@ bool Check_MDL::Check_Control_Summ()
 Neuron::Neuron() {
 	weights = 0;
 	bias = 0;
-	inputsCount = 0;
+	inputsCount;
+	output = 0;
 }
-Neuron::Neuron(double weights, double bias, int inputsCount) {
+Neuron::Neuron(std::function<double(double)> actFunction, double weights, double bias, int inputsCount) {
+	activationFunction = actFunction;
 	this->weights = weights;
 	this->bias = bias;
 	this->inputsCount = inputsCount;
