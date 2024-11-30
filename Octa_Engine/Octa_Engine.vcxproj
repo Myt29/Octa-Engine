@@ -132,6 +132,7 @@
     <ClCompile Include="Neuron_MDL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActivationFunctions.h" />
     <ClInclude Include="Net_MDL.h" />
     <ClInclude Include="Neuron_MDL.h" />
   </ItemGroup>

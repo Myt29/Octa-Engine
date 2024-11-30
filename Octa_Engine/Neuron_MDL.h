@@ -1,5 +1,6 @@
 #pragma once
 #include <functional>
+#include <vector>
 #include "Net_MDL.cpp"
 
 class Check_MDL {
@@ -7,34 +8,27 @@ private:
 	const int CONTROL_INPUT;
 public:
 	static bool Check_Connection();
-	static bool Check_Control_Summ();
+	static bool Check_ControlPoint();
 
 };
 
-class Activation_Functions {
-public:
-	static double Sigmoid(double input);
-	static double SigmoidDerivative(double input);
-	static double ReLU(double input);
-	static double ReLUDerivative(double input);
-	static double Tanh(double input);
-	static double TanhDerivative(double input);
-};
 
 class Neuron {
 private:
 	std::function<double(double)> activationFunction;
-	double weights;
+	std::vector<double> weights;
+	std::vector<double> inputs;
 	double bias;
-	int inputsCount;
-	double output = 0;
+	double output;
 
 public:
 	Neuron();
-	Neuron(std::function<double(double)> actFunction, double weights, double bias, int inputsCount);
-	double GetOutput(double input)
-	{
-		double linearOutput = weights * input + bias;
-		return activationFunction(linearOutput);
-	}
+	Neuron(std::function<double(double)> actFunction, double bias);
+
+	void SetWeights();
+	void SetInputs();
+
+	void ComputeOutput();
+	double& GetOutput(double input);
+	
 };
