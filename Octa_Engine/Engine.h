@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 #include <functional>
+#include <thread>
 
 #include "Neuron_MDL.h"
 #include "ActivationFunctions.h"
