@@ -1,17 +1,8 @@
 #pragma once
 #include <functional>
 #include <vector>
-#include "Net_MDL.cpp"
 
-class Check_MDL {
-private:
-	const int CONTROL_INPUT;
-public:
-	static bool Check_Connection();
-	static bool Check_ControlPoint();
-
-};
-
+bool GetEcho();
 
 class Neuron {
 private:

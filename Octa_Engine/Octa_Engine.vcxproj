@@ -127,13 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine_Inp.cpp" />
-    <ClCompile Include="Net_MDL.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Neuron_MDL.cpp" />
+    <ClCompile Include="Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActivationFunctions.h" />
-    <ClInclude Include="Net_MDL.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Neuron_MDL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

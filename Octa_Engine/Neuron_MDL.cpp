@@ -6,16 +6,9 @@
 
 int executionCode;
 
-// Static methods for checking module reliability
-bool Check_MDL::Check_Connection() {
+bool GetEcho() {
 	return true;
 }
-bool Check_MDL::Check_ControlPoint()
-{
-	return 1;
-}
-
-// Methods of class Neuron
 
 Neuron::Neuron() {
 	bias = 0;
