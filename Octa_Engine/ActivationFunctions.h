@@ -18,6 +18,10 @@ namespace ActivationFunctions {
         double sigmoid = Sigmoid(input);
         return sigmoid * (1 - sigmoid);
     }
+    inline double ELU(double input) {
+        const double alpha = 1.0;
+        return input > 0 ? input : alpha * (std::exp(input) - 1);
+    }
     inline double ReLU(double input)
     {
         return std::max(0.0, input);
@@ -25,6 +29,13 @@ namespace ActivationFunctions {
     inline double ReLUDerivative(double input)
     {
         return (input > 0) ? 1.0 : 0.0;
+    }
+    inline double LeakyReLU(double input) {
+        const double alpha = 0.01;
+        return input > 0 ? input : alpha * input;
+    }
+    inline double PReLU(double input, double alpha) {
+        input > 0 ? input : alpha * input;
     }
     inline double Tanh(double input)
     {
@@ -34,6 +45,24 @@ namespace ActivationFunctions {
     {
         double tanh = Tanh(input);
         return 1 - tanh * tanh;
+    }
+    inline double Softplus(double input) {
+        return std::log(1 + std::exp(input));
+    }
+    inline double Swing(double input) {
+        return input / (1 + std::exp(-input));
+    }
+    inline double Softsign(double input) {
+        return input / (1 + std::abs(input));
+    }
+    inline double Gaussian(double input) {
+        return std::exp(-input * input);
+    }
+    inline double BipolarSigmoid(double input) {
+        return (1 - std::exp(-input)) / (1 + std::exp(-input));
+    }
+    inline double Mish(double input) {
+        return input * std::tanh(std::log(1 + std::exp(input)));
     }
 
     // Testing methods of activation functions

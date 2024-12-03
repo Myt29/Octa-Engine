@@ -20,6 +20,7 @@ public:
 	Neuron CreateNeuron(std::function<double(double)> actFunction, double bias);
 
 
+
 	~Engine() {
 		std::cout << "\nSession killed..." << std::endl;
 	}
